@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +10,20 @@
 <body class="bg-yellow-50">
     <div class="flex bg-[#e2725b] space-x-10 h-32 items-center justify-between pr-12 pl-10">
         <img src="./p-assets/A-logo.png" alt="logo" class=" w-48 h-20"/>
-        <ul class=" flex text-white text-xs space-x-8 ">
-            <li class="">Swallow <span>&#9662;</span></li>
-            <li class="">Rice <span>&#9662;</span></li>
-            <li class="">Soups <span>&#9662;</span></li>
+        <button id="toggleMenu" class="text-white text-2xl md:hidden relative">&#9776;</button>
+        <!-- Mobile Menu (hidden by default) -->
+        <ul id="mobileMenu" class=" hidden top-12 w-28 right-0 font-bold rounded md:hidden absolute bg-white text-black mt-9 space-y-2 p-2 z-50">
+            <li>Drinks <span>&#9662;</span></li>
+            <li>Snacks <span>&#9662;</span></li>
+            <li>Parfait <span>&#9662;</span></li>
+            
+        </ul>
+        <ul class=" text-white text-xs space-x-8 hidden md:block  md:flex">
+            <li class="">Drinks <span>&#9662;</span></li>
+            <li class="">Snacks <span>&#9662;</span></li>
+            <li class="">Parfait <span>&#9662;</span></li>
         </ul>
-        <div class="flex">
+        <div class="hidden md:block md:flex ">
             <div class=" flex  items-center  ">
               <!-- <img src="./p-assets/search-icon.png" alt="search-icon" class="  w-5 h-5 invert brightness-200"> -->
               <input type="text" id="searchBtn" class="w-80 h-15 border-2 rounded focus:bg-white bg-[#e2725b]   px-6 py-3 rounded-l-md focus:text-black focus:outline-none" placeholder="Search">
@@ -27,7 +36,7 @@
         </div>
   </div>
   <div class="flex  space-x-24">
-    <div class="pl-10">
+    <div class="pl-10 hidden md:block">
       <div>
         <h1 class="pt-8 font-semibold">Filters</h1>
         <h2 class="pt-4 font-semibold">Categories</h2>
@@ -71,91 +80,69 @@
         </label>
       </div>
     </div>
-    <div class="flex-col pt-20">
-     <div class=" flex space-x-72">
-      <div class="w-64 h-80 bg-white items-center justify-center" >
-        <div class="">
-          <img src="./p-assets/meat-pie.jpg" alt="Meat-pie" class=" flex w-100 h-44 pl-5">
-          <h1 class="font-medium  pt-3">Meat-pie</h1>
-          <p class="text-xs pt-3">Freshly freshly mouth watering Meat-pie.</p>
-        </div>      
-        <div class=" flex pt-5 space-x-24">
-          <p class="font-bold"  style= "color: #e2725b;">#1500</p>
-          <button class="bg-[#e2725b] text-white px-4 py-1 rounded text-xs font-bold">Add to cart</button>
-        </div>
-      </div>
+    <main class=" p-6 gap-20 grid  md:grid-cols-2 md:grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 bg-white p-5 mt-20">
+            <div class="shadow-xl rounded max-w-5xl">
+                <img class="rounded" src="./p-assets/meat-pie.jpg">
+                <h1 class="text-4xl font-semibold mt-3">Meat-pie</h1>
+                <p class="text-xl mt-3">Golden, flaky patry packed with rich, savory meat filling.</p>
+                <div class="flex justify-between mt-3">
+                    <p class="text-orange-500 text-3xl font-extrabold">#1500</p>
+                    <button type="Add" class="text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded shadow-lg" id="cartLoad">🛒 Add to cart</button>
+                </div>
+            </div>
 
-      <div class="w-64 h-80 bg-white items-center justify-center" >
-        <div class="">
-          <img src="./p-assets/parfait.jpg" alt="parfait" class=" flex w-100 h-44 pl-5">
-          <h1 class="font-medium  pt-3 pl-10">Parfait</h1>
-          <p class="text-xs pt-3 pl-5">The perfect Creamy, crunchy and fruity Parfait.</p>
-        </div>      
-        <div class=" flex pt-5 space-x-24">
-          <p class="font-bold"  style= "color: #e2725b;">#3000</p>
-          <button class="bg-[#e2725b] text-white px-4 py-1 rounded text-xs font-bold">Add to cart</button>
-        </div>
-      </div>
-        
-     </div>
+            <div class="shadow-xl rounded">
+                <img class="rounded" src="./p-assets/parfait.jpg">
+                <h1 class="text-4xl font-semibold mt-3">Parfait</h1>
+                <p class="text-xl mt-3">Layers of creamy yoghurt, fruits, and crunchy suprises.</p>
+                <div class="flex justify-between mt-3">
+                    <p class="text-orange-500 text-3xl font-extrabold">#3000</p>
+                    <button type="Add" class="text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded shadow-lg" data-name="Parfait" data-price="3000" id="cartLoad">🛒 Add to cart</button>
+                </div>
+            </div>
 
+            <div class="mt-5 shadow-xl rounded">
+                <img class="rounded" src="./p-assets/chin-chin.jpg">
+                <h1 class="text-4xl font-semibold mt-3">Chin-Chin</h1>
+                <p class="text-xl mt-3">Sweet, crunch, and addictive little bites of happiness</p>
+                <div class="flex justify-between mt-3">
+                    <p class="text-orange-500 text-3xl font-extrabold">#2000</p>
+                    <button type="Add" class="text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded shadow-lg" data-name="Chin-chin" data-price="2000" id="cartLoad">🛒 Add  to cart</button>
+                </div>
+            </div>
+            
+            <div class="mt-5 shadow-xl rounded">
+                <img class="rounded" src="./p-assets/kunu.jpg">
+                <h1 class="text-4xl font-semibold mt-3">Kunu</h1>
+                <p class="text-xl mt-3">A smooth nourishing drink made from natural grains</p>
+                <div class="flex justify-between mt-3">
+                    <p class="text-orange-500 text-3xl font-extrabold">#2000</p>
+                    <button type="Add" class="text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded shadow-lg" data-name="Kunu" data-price="2000" id="cartLoad">🛒 Add to cart</button>
+                </div>
+            </div>
+
+             <div class="mt-5 shadow-xl rounded">
+                <img class="rounded" src="./p-assets/egg-roll.jpg">
+                <h1 class="text-4xl font-semibold mt-3">Egg roll</h1>
+                <p class="text-xl mt-3">Crispy, soft and tasty Egg roll.</p>
+                <div class="flex justify-between mt-3">
+                    <p class="text-orange-500 text-3xl font-extrabold">#2000</p>
+                    <button type="Add" class="text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded shadow-lg" data-name="Egg roll" data-price="2000" id="cartLoad">🛒 Add to cart</button>
+                </div>
+            </div>
+
+            <div class="mt-5 shadow-xl rounded">
+                <img class="rounded" src="./p-assets/zobo.jpg">
+                <h1 class="text-4xl font-semibold mt-3">Zobo</h1>
+                <p class="text-xl mt-3">Refreshing hibiscus drink with a natural fuity taste.</p>
+                <div class="flex justify-between mt-3">
+                    <p class="text-orange-500 text-3xl font-extrabold">#2000</p>
+                    <button type="Add" class="text-white bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded shadow-lg" data-name="Zobo" data-price="2000" id="cartLoad">🛒 Add to cart</button>
+                </div>
    
-      <div class=" flex space-x-72 pt-10">
-         <div class="w-64 h-80 bg-white items-center justify-center" >
-         <div class="">
-          <img src="./p-assets/egg-roll.jpg" alt="Egg-roll" class=" flex w-80 h-44 pl-5">
-          <h1 class="font-medium  pt-3">Egg-roll</h1>
-          <p class="text-xs pt-3">Freshly freshly mouth watering Meat-pie.</p>
-         </div>      
-         <div class=" flex pt-5 space-x-24">
-          <p class="font-bold"  style= "color: #e2725b;">#1000</p>
-          <button class="bg-[#e2725b] text-white px-4 py-1 rounded text-xs font-bold">Add to cart</button>
-        </div>
-       </div>
-
-       <div class="w-64 h-80 bg-white items-center justify-center" >
-        <div class="">
-          <img src="./p-assets/zobo.jpg" alt="Zobo" class=" flex w-80 h-44 pl-5">
-          <h1 class="font-medium  pt-3 pl-10">Zobo</h1>
-          <p class="text-xs pt-3 pl-5">Bold, refreshingand naturay spiced drink.</p>
-        </div>      
-        <div class=" flex pt-5 space-x-24">
-          <p class="font-bold"  style= "color: #e2725b;">#1000</p>
-          <button class="bg-[#e2725b] text-white px-4 py-1 rounded text-xs font-bold">Add to cart</button>
-        </div>
-      </div>
-        
-     </div>
-
-     <div class=" flex space-x-72 pt-10">
-      <div class="w-64 h-80 bg-white items-center justify-center" >
-        <div class="">
-          <img src="./p-assets/chin-chin.jpg" alt="chin-chin" class=" flex w-56 h-44 pl-5">
-          <h1 class="font-medium  pt-3">Chin-chin</h1>
-          <p class="text-xs pt-3">Freshly fried crunchy Chin-chin</p>
-        </div>      
-        <div class=" flex pt-5 space-x-24">
-          <p class="font-bold"  style= "color: #e2725b;">#2000</p>
-          <button class="bg-[#e2725b] text-white px-4 py-1 rounded text-xs font-bold">Add to cart</button>
-        </div>
-      </div>
-
-      <div class="w-64 h-80 bg-white items-center justify-center" >
-        <div class="">
-          <img src="./p-assets/kunu.jpg" alt="Kunu" class=" flex w-56 h-44 pl-5">
-          <h1 class="font-medium  pt-3 pl-10">Kunu</h1>
-          <p class="text-xs pt-3 pl-5">A smooth, nutty, lightly spiced drink.</p>
-        </div>      
-        <div class=" flex pt-5 space-x-24">
-          <p class="font-bold"  style= "color: #e2725b;">#1000</p>
-          <button class="bg-[#e2725b] text-white px-4 py-1 rounded text-xs font-bold">Add to cart</button>
-        </div>
-      </div>
-        
-     </div>
-    </div>
-  </div>
-
-
+  </div>div>           </div>
+       
+    
+<script type="text/javascript" src="./index.js"></script>
 </body>
 </html>
